@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ajouterAlerte_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <script type="text/javascript" src="js/GererAlertes.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+  </head>
+
+  <body id="afui" class="v2" onload="getTypes()">
+
+    <div class="upage view" id="mainpage" data-header="af-header-1">
+      <header class="container-group outer-element uib_w_1" data-uib="app_framework/header" data-ver="3" id="af-header-1">
+        <h1></h1>
+        <div class="widget-container wrapping-col single-centered"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+      </header>
+     </div>
+        <form id="form">
+         
+            <br>
+            <br>
+            <br>
+              <br>
+              <h3 align="center">Déclencher Une Alerte</h3>
+              <br>
+              <br>
+              <center>
+                <table border="1">
+                  <tbody>
+                    <tr>
+                      <td width="150"><b>Salle</b>
+                      </td>
+                      <td>
+                        <div id="s"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>Examen</b>
+                      </td>
+                      <td>
+                        <dv id="m"></dv>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+                
+                    <div id="types"></div>
+                    
+                    
+              </center>
+              
+           
+         
+        </form>
+      <br><br>
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/compte_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+      <script type="text/javascript" src="js/compte.js"></script>
+  </head>
+
+  <body id="afui" class="v2" style="background-color:#2E9AFE;">
+
+    <div class="upage view" id="mainpage" data-header="af-header-0" data-footer="none">
+      <header class="container-group outer-element uib_w_1" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+        <h1></h1>
+        <div class="widget-container wrapping-col single-centered"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+      </header>                                           <!-- #2E9AFE; -->
+      <div class="pages" style="background-color:white;">
+        <div class="upage-content ac0 content-area vertical-col left panel" id="page_80_99">
+          <br>
+          <br>
+          
+          <h2 align="center" style="color:black;">Paramètres de connexion</h2>
+          <br>
+          
+          <div id="er" align=center></div><br>
+            <center>
+          <table style="width: 95%;background-color:#FFFFFF;">
+            <tbody>
+              <tr>
+                <td>Nom d'utilisateur</td>
+                <td>
+                  <input type="text" id="nom" required autocomplete="off">
+                </td>
+              </tr>
+              <tr>
+                <td>Mot de passe</td>
+                <td>
+                  <input type="text" id="pass" required autocomplete="off">
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center">
+                  <input type="button" value="Modifier" style="width: 75%; height: 30px;" onclick="updateParam()">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+         </center>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

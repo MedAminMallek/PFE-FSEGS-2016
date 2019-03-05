@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ajoutervoeu_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+    <script type="text/javascript" src="js/chargerJour.js"></script>
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+  </head>
+
+  <body id="afui" class="v2" onload="getJour()">
+
+    <div class="upage vertical-col left view" id="mainpage" data-header="af-header-0" data-footer="none">
+      <header class="container-group outer-element uib_w_1" data-uib="app_framework/header" data-ver="3" id="af-header-0">
+        <h1></h1>
+        <div class="widget-container wrapping-col single-centered"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+      </header>
+      <div class="pages">
+        <div class="upage-outer">
+          <div class="upage-content panel ac0" id="uib_page_1" align="center">
+            <h4 align="center">Choisissez une journée</h4>
+
+            <div class="widget uib_w_2 d-margins" data-uib="app_framework/input_group" data-ver="2">
+        
+                <ul class="list widget uib_w_2 d-margins" data-uib="app_framework/listview" data-ver="2" id="list">
+                </ul>
+               <br>
+                <br>
+                <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<script type="text/javascript">
+function h(id){
+    sessionStorage.setItem("dateJour",id);
+    window.location.replace("seances.html");
+}
+
+</script>

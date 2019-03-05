@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <!-- <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2"> -->
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/grille_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+      <script type="text/javascript" src="js/grille.js"></script>
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+      
+      <style type="text/css">
+  input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.7); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+          input[type=button] {
+    width: 20em;  height: 2em;
+}
+  </style>
+  </head>
+
+  <body onload="loadCalen()">
+      <h3 align=center>Gestion des voeux</h3>
+      <h4 align="center">Charge de surveillance:<div id="DIVC"></div></h4>
+      <div id="c"></div>
+      <br>
+      <center>
+      <table border="1" align=center width=40%>
+      <tr><td><b>Examen</b><td bgcolor="blue"><font color="white"><b>Responsable</font><td bgcolor="#58ACFA"><b>Impliquer</tr>
+      <tr><td><b>Emploie<td bgcolor="#00FF87"><b>Licence<td bgcolor="#088A08"><b>Master</tr>
+      </table>
+        <br>
+      <input type="button" value="Valider" onclick="getValue()" width="90px" id="bt1">
+      </center>
+      <br>
+      <br>
+      
+  </body>
+    
+<script type="text/javascript">
+		function categoryOnClick() {
+			
+		    var rows = document.getElementsByName('seance[]');
+		    var selectedRows = [];
+		    for (var i = 0, l = rows.length; i < l; i++) {
+		        if (rows[i].checked) {
+		            selectedRows.push(rows[i]);
+		        }
+		    }
+            var nbS= sessionStorage.getItem("nbS");
+            document.getElementById("DIVC").innerHTML=selectedRows.length+'/'+nbS;
+		    
+		    var x = selectedRows.length;
+            if(nbS<x){
+                document.getElementById("DIVC").style.color = "red";
+		        document.getElementById("bt1").disabled= true;
+            }else{
+                document.getElementById("DIVC").style.color = "black";
+               document.getElementById("bt1").disabled= false;
+            }
+		}
+    </script>
+
+</html>

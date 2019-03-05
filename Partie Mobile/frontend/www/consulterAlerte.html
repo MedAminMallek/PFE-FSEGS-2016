@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/af.ui.css" data-ver="2">
+    <link rel="stylesheet" type="text/css" href="app_framework/3.0/icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/consulterAlerte_main.less.css" class="main-less">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+      <script type="text/javascript" src="js/GererAlertes.js"></script>
+    <!--      
+      You may substitute jQuery for the App Framework selector library.
+      See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+    -->
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="app_framework/3.0/appframework.ui.min.js"></script>
+    <script type="application/javascript">
+      $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+      /* This function runs when the content is loaded.*/
+      $.afui.useOSThemes=false;
+       $(document).ready(function(){
+          setTimeout(function(){
+              $.afui.launch();
+          },1500);
+      });
+    </script>
+    <script type="text/javascript">
+            document.addEventListener("backbutton", backButtonPressed, false);
+            function backButtonPressed()
+            {
+                window.location.replace("menu1.html");
+            }
+        </script>
+  </head>
+
+  <body id="afui" class="v2" onload="getAlerte()">
+
+    <div class="upage view" id="mainpage" data-header="af-header-1" data-footer="none">
+      <header class="container-group outer-element uib_w_1" data-uib="app_framework/header" data-ver="3" id="af-header-1">
+        <h1></h1>
+        <div class="widget-container wrapping-col single-centered"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-left"></div>
+        <div class="widget-container content-area horiz-area wrapping-col header-right"></div>
+      </header>
+      <div class="pages">
+        <div class="upage-content ac0 content-area vertical-col left panel" id="page_58_28">
+          <div class="tarea widget uib_w_2 d-margins" data-uib="media/text" data-ver="0" name="uib_w_2">
+            <div class="widget-container left-receptacle"></div>
+            <div class="widget-container right-receptacle"></div>
+            <h3 align=center>Liste des alertes</h3>
+              <br><br><br>
+              <font size=3>
+              <div align=center id="liste"></div>
+                </font>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

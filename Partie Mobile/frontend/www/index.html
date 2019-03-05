@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login </title>
+    
+    <script type="text/javascript" src="js/login.js"></script>
+        <script src="cordova.js" id="xdkJScordova_"></script>
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+      
+    <link rel="stylesheet" href="css/authReset.css">
+
+    
+    <link rel="stylesheet" href="css/authCSS.css">
+      <script type="application/javascript">
+            $.afui.autoLaunch = false; //By default, it is set to true and you're app will run right away.  We set it to false to show a splashscreen
+            /* This function runs when the content is loaded.*/
+            $.afui.useOSThemes=false;
+             $(document).ready(function(){
+                setTimeout(function(){
+                    $.afui.launch();
+                },1500);
+            });
+        </script>
+    <script type="text/javascript" src="js/grille.js"></script>
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript">
+            function param()
+            {
+
+                //localStorage.removeItem('tabJS');
+                //localStorage.removeItem('tabJ');
+                sessionStorage.setItem("VU",'0');
+                var x = "localhost";
+                var x2 = "192.168.1.5";
+                sessionStorage.setItem("ip",x);
+            }
+        </script>
+  </head>
+
+  <body onload="param()">
+
+    <div class="wrap">
+		<div class="avatar">
+      <img src="css/fsegs.png" style="background-color:white;">
+		</div>
+		<input type="text" placeholder="nom d'utilisateur" required  id="user">
+		<div class="bar">
+			<i></i>
+		</div>
+		<input type="password" placeholder="mot de passe" required id="pass">
+		<a href="mailOublier.html" class="forgot_link">Oublier ?</a>
+		<button onclick="login()">S'authentifier</button>
+	</div>
+    
+        
+
+    
+    
+    
+  </body>
+</html>
